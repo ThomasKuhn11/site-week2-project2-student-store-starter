@@ -39,6 +39,51 @@ export default function Home() {
 // }
 
 
+  ///////////////////////////from subNav///////////////////////////////
+
+  const [searchValue, setSearchValue] = useState('');
+
+  const [newSearch, setNewSearch] = useState([])
+
+  const handleSearchChange = (event) => {
+      //console.log("-------", event.taget.value)
+      setSearchValue(event.target.value)
+
+      
+
+
+      // let query = products?.filter( (product) => product.name.includes(searchValue))
+      //setSearchNew(products?.filter( (product) => product.name.includes(searchValue)))
+
+      //alert(searchValue)
+      //compare search value and find the ones I want 
+      //use the filter to select items that have the key word value
+      //filter the products array to only the ones with input from search bar
+
+      //capture values from filter and render them again like done before 
+
+  }
+
+
+  const handleSearch = () => {
+      //alert(searchValue)
+
+      setNewSearch(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
+
+      //let query = products?.filter( (product) => product.name.includes(searchValue))
+      
+      //I already use this products variable on the first rendering. I mapped it.
+      //Can I keep using it?
+      //shoulf I make new one
+
+      //setProduts to this query
+      //setProducts(query)
+
+  }
+
+  ////////////////////////////////////////////////////
+
+
   useEffect(() => {
     axios.get(url)
     .then((response)=> {     
@@ -54,9 +99,13 @@ export default function Home() {
             <h1>Welcome to my store!</h1>
             <p>We have all kinds of click on the items and start exploring</p>
           </div>
-          <SubNav products={products}  />
-          {/* <Grid products={query ? query: products}/> */}
-          <Grid products={products}/>
+          <SubNav products={products} 
+                  searchValue={searchValue}
+                  handleSearchChange={handleSearchChange}
+                  handleSearch ={handleSearch}  />
+
+          <Grid products={newSearch ? newSearch: products}/>
+          {/* <Grid products={products}/> */}
 
           <div class="About Us">
             <h1>About Us</h1> <br/>

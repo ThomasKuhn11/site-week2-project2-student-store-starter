@@ -7,42 +7,9 @@ import Search from "../Search/Search"
 
 import Grid from "../Grid/Grid"
 
-export default function SubNav({products}) {
-
-    const [searchValue, setSearchValue] = useState('');
-    //const [searchNew, setSearchNew] = useState([])
-  
-    const handleSearchChange = (event) => {
-        //console.log("-------", event.taget.value)
-        setSearchValue(event.target.value)
+export default function SubNav({products, searchValue, handleSearchChange, handleSearch}) {
 
 
-        // let query = products?.filter( (product) => product.name.includes(searchValue))
-        //setSearchNew(products?.filter( (product) => product.name.includes(searchValue)))
-
-        //alert(searchValue)
-        //compare search value and find the ones I want 
-        //use the filter to select items that have the key word value
-        //filter the products array to only the ones with input from search bar
-
-        //capture values from filter and render them again like done before 
-
-    }
-
-
-    const handleSearch = () => {
-        alert(searchValue)
-
-        let query = products?.filter( (product) => product.name.includes(searchValue))
-        console.log(query)
-        //I already use this products variable on the first rendering. I mapped it.
-        //Can I keep using it?
-        //shoulf I make new one
-
-        //setProduts to this query
-        //setProducts(query)
-
-    }
 
   return (
     <nav className="sub-navbar">
