@@ -18,8 +18,8 @@ export default function App() {
   let url = 'https://codepath-store-api.herokuapp.com/store'
 
   const[products, setProducts] = useState([]);
+  //already using this in order to render the inicial items
 
-  const [searchValue, setSearchValue] = useState('');
 
 
   useEffect(() => {
@@ -41,8 +41,6 @@ export default function App() {
         <Route path="/about" element={<About/>}/>
         
       </Routes> */}
-
-
         <main>
           {/* YOUR CODE HERE! */}
           <Navbar />
@@ -51,8 +49,17 @@ export default function App() {
             <h1>Welcome to my store!</h1>
             <p>We have all kinds of click on the items and start exploring</p>
           </div>
-          <SubNav searchValue={[searchValue, setSearchValue]}/>
+          <SubNav products={products}/>
           <Home products={products}/>
+          <div class="About Us">
+            <h1>About Us</h1>
+
+          </div>
+          <div class="Contact Us">
+            <h1>Contact Us</h1>
+
+          </div>
+     
         </main>
       </BrowserRouter>
     </div>
