@@ -27,6 +27,8 @@ export default function Home() {
 
   const [filtered, setFiltered] = useState('')
 
+  const [cat, setCat] = useState('')
+
   //use state for filtered here
   //filtered = all products by default //use useEffect() for this
   //each
@@ -61,13 +63,20 @@ export default function Home() {
       //maybe make a new state originalProducts to have a set of products that never changes
       
       //d
-      setFiltered(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
-
+      if(cat.length > 0){
+        setFiltered(products?.filter((product) => product.category == cat).filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
+      }
+      else{
+        setFiltered(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
+      }
+        
   }
 
   function handleFilter(cat) {
-    alert(cat)
-    setFiltered(newSearch?.filter(item => {
+    setCat(cat)
+    console.log(cat)
+    //alert(cat)
+    setFiltered(products?.filter(item => {
       if (cat == '') return item
       return item.category == cat
 
