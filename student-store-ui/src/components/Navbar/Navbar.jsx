@@ -5,10 +5,10 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div class="content">
-        <div class="logo">
-          <a href="/">
-            <img src="/assets/codepath.f1b3e41a.svg" alt="codepath logo"></img>
-            </a>
+        <div class="site">
+          
+            <h1 alt="codepath logo" id="siteName">Thomas.Kuhn11</h1>
+            
         </div>
               <ul class="links">
                 <li><a href="/">Home</a></li>

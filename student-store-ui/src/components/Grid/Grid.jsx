@@ -2,7 +2,7 @@ import * as React from "react"
 import "./Grid.css"
 
 export default function Grid({products}) {
-    console.log(products)
+    //console.log(products)
   
     function createProduct(info) {
       return (

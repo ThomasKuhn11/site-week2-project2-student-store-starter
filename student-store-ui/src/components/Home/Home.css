@@ -22,9 +22,16 @@ margin-left: 100px;
   
 }
 
-.title {
+.welcome{
+  margin-left: 530px;
   text-align: center;
+  font-family: fantasy;
+  font-size: x-large;
   /* background-color: darkgreen; */
+}
+
+#extraInfo {
+  display: block;
 }
 
 

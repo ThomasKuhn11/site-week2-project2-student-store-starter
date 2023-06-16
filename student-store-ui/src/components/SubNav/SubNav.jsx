@@ -7,8 +7,7 @@ import Search from "../Search/Search"
 
 import Grid from "../Grid/Grid"
 
-export default function SubNav({products, searchValue, handleSearchChange, handleSearch}) {
-
+export default function SubNav({products, searchValue, handleChange, handleSearch, handleFilter}) {
 
 
   return (
@@ -16,7 +15,7 @@ export default function SubNav({products, searchValue, handleSearchChange, handl
       <div className="content">
         <div className="row">
           <Search searchValue={searchValue}
-                  handleSearchChange={handleSearchChange}
+                  handleChange={handleChange}
                   handleSearch ={handleSearch}
                   />
                   
@@ -36,21 +35,21 @@ export default function SubNav({products, searchValue, handleSearchChange, handl
           <div className="hamburger-menu">
             <i className="material-icons">menu</i>
           </div>
-          <ul className="category-menu open">
+          <ul className="category-menu">
             <li className="">
-              <button>All Categories</button>
+              <button onClick = {() => handleFilter('')}>All Categories</button>
             </li>
             <li className="">
-              <button>Clothing</button>
-            </li>
-            <li className="is-active">
-              <button>Food</button>
+              <button onClick = {() => handleFilter('clothing') } >Clothing</button>
             </li>
             <li className="">
-              <button>Accessories</button>
+              <button onClick = {() => handleFilter('food') }>Food</button>
             </li>
             <li className="">
-              <button>Tech</button>
+              <button  onClick = {() => handleFilter('accessories') }>Accessories</button>
+            </li>
+            <li className="">
+              <button onClick = {() => handleFilter('tech') }>Tech</button>
             </li>
           </ul>
         </div>

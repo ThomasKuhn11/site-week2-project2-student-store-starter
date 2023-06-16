@@ -9,6 +9,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import axios from 'axios';
 
+import About from "../About/About"
+import Contact from "../Contact/Contact"
+
+import Footer from "../Footer/Footer"
 
 
 export default function Home() {
@@ -16,51 +20,27 @@ export default function Home() {
   let url = 'https://codepath-store-api.herokuapp.com/store'
 
   const[products, setProducts] = useState([]);
-  //already using this in order to render the inicial items
-
-  //handle search here
-  //use query value to see
-
-  //let query = []
-
-//   const handleSearch = () => {
-
-//     //setSeach
-        
-//     query = products?.filter( (product) => product.name.includes(searchValue))
-//     console.log(query)
-//     //I already use this products variable on the first rendering. I mapped it.
-//     //Can I keep using it?
-//     //shoulf I make new one
-
-//     //setProduts to this query
-//     //setProducts(query)
-
-// }
-
-
-  ///////////////////////////from subNav///////////////////////////////
 
   const [searchValue, setSearchValue] = useState('');
 
   const [newSearch, setNewSearch] = useState([])
 
-  const handleSearchChange = (event) => {
-      //console.log("-------", event.taget.value)
+  const [filtered, setFiltered] = useState('')
+
+  //use state for filtered here
+  //filtered = all products by default //use useEffect() for this
+  //each
+
+
+  const handleChange = (event) => {
       setSearchValue(event.target.value)
 
-      
-
-
-      // let query = products?.filter( (product) => product.name.includes(searchValue))
-      //setSearchNew(products?.filter( (product) => product.name.includes(searchValue)))
-
-      //alert(searchValue)
-      //compare search value and find the ones I want 
-      //use the filter to select items that have the key word value
-      //filter the products array to only the ones with input from search bar
-
-      //capture values from filter and render them again like done before 
+      //new stuffffffffffffffffffffff
+      setFiltered(products?.filter( products => {
+        if (event.target.value == '') return products;
+        return products.name.toLowerCase().includes(event.target.value.toLowerCase)
+      }))
+      //setFiltered()
 
   }
 
@@ -70,19 +50,25 @@ export default function Home() {
 
       setNewSearch(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
 
-      //let query = products?.filter( (product) => product.name.includes(searchValue))
-      
-      //I already use this products variable on the first rendering. I mapped it.
-      //Can I keep using it?
-      //shoulf I make new one
+  }
 
-      //setProduts to this query
-      //setProducts(query)
+  function handleFilter(cat) {
+    //alert(cat)
+    setFiltered(products?.filter(item => {
+      if (cat == '') return item
+      return item.category ==cat
+
+    }))
+    console.log(filtered)
 
   }
 
-  ////////////////////////////////////////////////////
 
+  // function displayNow() {
+  //   if (newSearch !== '') return newSearch
+  //   else if (filtered) return filtered
+  //   else return products
+  // }
 
   useEffect(() => {
     axios.get(url)
@@ -95,32 +81,38 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div class='title'> 
+      <div class='welcome'> 
             <h1>Welcome to my store!</h1>
-            <p>We have all kinds of click on the items and start exploring</p>
+            <p>We have all kinds of items. Click and start exploring!</p>
           </div>
           <SubNav products={products} 
                   searchValue={searchValue}
-                  handleSearchChange={handleSearchChange}
-                  handleSearch ={handleSearch}  />
+                  handleChange={handleChange}
+                  handleSearch ={handleSearch} 
+                  handleFilter={handleFilter} />
 
+           {/* <Grid products={displayNow()}/> */}
           <Grid products={newSearch ? newSearch: products}/>
-          {/* <Grid products={products}/> */}
-
-          <div class="About Us">
-            <h1>About Us</h1> <br/>
-
-          </div>
-          <div class="Contact Us">
-            <h1>Contact Us</h1>
-
-          </div>
+          {/* <Grid products={filtered ? filtered: products}/> */}
+          
 
       {/* <Link to="/about">Route Click</Link> */}
 {/*       
       {
         products.map(product => createProduct(product))
       } */}
-     </div>    
+
+      <div id="extraInfo">
+
+      <About/>
+      <Contact/>
+      <Footer/>
+
+
+      </div>
+
+    
+
+  </div>    
   )
 }

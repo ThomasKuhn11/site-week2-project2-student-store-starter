@@ -16,5 +16,12 @@
     max-width: 650px;
 } 
 
+#siteName {
+    /* text-align: center; */
+    font-family: cursive, sans-serif;
+    margin-left: 120px;
+
+}
+
 
 
