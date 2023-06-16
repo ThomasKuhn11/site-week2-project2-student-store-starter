@@ -21,9 +21,9 @@ export default function Home() {
 
   const[products, setProducts] = useState([]);
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState();
 
-  const [newSearch, setNewSearch] = useState([])
+  const [newSearch, setNewSearch] = useState(products) //[]
 
   const [filtered, setFiltered] = useState('')
 
@@ -31,9 +31,12 @@ export default function Home() {
   //filtered = all products by default //use useEffect() for this
   //each
 
-
+//called everytime search bar is changed
   const handleChange = (event) => {
       setSearchValue(event.target.value)
+
+      //d
+      //setFiltered(event.target.value)
 
       //new stuffffffffffffffffffffff
       setFiltered(products?.filter( products => {
@@ -44,19 +47,29 @@ export default function Home() {
 
   }
 
-
-  const handleSearch = () => {
+//called when submit is pressed
+  const handleSearch = (event) => {
       //alert(searchValue)
 
-      setNewSearch(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
+      // setFiltered(products?.filter( products => {
+      //   if (event.target.value == '') return products;
+      //   return products.name.toLowerCase().includes(event.target.value.toLowerCase)
+      // }))
+      //alert(filtered)
+
+      // setNewSearch(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
+      //maybe make a new state originalProducts to have a set of products that never changes
+      
+      //d
+      setFiltered(products?.filter( (product) => product.name.toLowerCase().includes(searchValue.toLowerCase())))
 
   }
 
   function handleFilter(cat) {
-    //alert(cat)
-    setFiltered(products?.filter(item => {
+    alert(cat)
+    setFiltered(newSearch?.filter(item => {
       if (cat == '') return item
-      return item.category ==cat
+      return item.category == cat
 
     }))
     console.log(filtered)
@@ -92,8 +105,8 @@ export default function Home() {
                   handleFilter={handleFilter} />
 
            {/* <Grid products={displayNow()}/> */}
-          <Grid products={newSearch ? newSearch: products}/>
-          {/* <Grid products={filtered ? filtered: products}/> */}
+          {/* <Grid products={newSearch ? newSearch: products}/> */}
+          <Grid products={filtered ? filtered: products}/>
           
 
       {/* <Link to="/about">Route Click</Link> */}

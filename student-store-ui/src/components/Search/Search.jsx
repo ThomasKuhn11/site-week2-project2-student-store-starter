@@ -7,7 +7,7 @@ export default function Search({ searchValue, handleChange, handleSearch }) {
   function handleOnClick(event) {
     //alert(searchValue)
     event.preventDefault();
-    handleSearch();
+    handleSearch(event);
     
     
   }
