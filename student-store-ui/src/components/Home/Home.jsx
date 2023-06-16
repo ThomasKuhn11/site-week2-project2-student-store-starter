@@ -14,6 +14,9 @@ import Contact from "../Contact/Contact"
 
 import Footer from "../Footer/Footer"
 
+import Navbar from "../Navbar/Navbar";
+import Sidebar from "../Sidebar/Sidebar";
+
 
 export default function Home() {
 
@@ -103,6 +106,7 @@ export default function Home() {
 
   return (
     <div className="home">
+      {/* <Sidebar/> */}
       <div class='welcome'> 
             <h1>Welcome to my store!</h1>
             <p>We have all kinds of items. Click and start exploring!</p>
@@ -130,10 +134,7 @@ export default function Home() {
       <Contact/>
       <Footer/>
 
-
       </div>
-
-    
 
   </div>    
   )

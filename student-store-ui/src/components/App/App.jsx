@@ -6,28 +6,39 @@ import Home from "../Home/Home";
 import "./App.css";
 
 import SubNav from "../SubNav/SubNav";
+import NotFound from "../NotFound/NotFound";
+
+
 
 //not part of project
 import { useEffect, useState } from "react";
 import axios from "axios";
 import About from "../About/About";
+import ProductDetails from "../ProductDetails/ProductDetails";
 
 export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        {/* <Routes>
+      
+      <Sidebar/>
+      <Navbar/>
+       <main>
+        <Routes>
+            <Route path="" element={<Home/>}/>
+                         
+            <Route path="products/:id" element={<ProductDetails/>}/>
+         
 
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
+            <Route path="*" element={<NotFound/>} />
+      
+       </Routes>
         
-      </Routes> */}
-        <main>
           {/* YOUR CODE HERE! */}
-          <Navbar />
-          <Sidebar />
+          {/* <Navbar /> */}
+          {/* <Sidebar /> */}
 
-          <Home />
+          {/* <Home /> */}
 
         </main>
       </BrowserRouter>

@@ -1,12 +1,16 @@
 import * as React from "react"
 import "./Grid.css"
 
+import { Link } from "react-router-dom"
+
 export default function Grid({products}) {
     //console.log(products)
   
     function createProduct(info) {
       return (
-        <div className="product">
+        <Link to={"products/" + info.id}>
+
+            <div className="product">
               <img className="foodImages" src={info.image} />
               <div className="mainInfo">
                 <p>{info.name}</p>
@@ -14,6 +18,9 @@ export default function Grid({products}) {
               </div>
               
             </div>
+        
+        </Link>
+  
       )
     }  
     return (

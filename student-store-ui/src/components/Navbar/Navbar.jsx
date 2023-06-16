@@ -4,13 +4,13 @@ import "./Navbar.css"
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <div class="content">
-        <div class="site">
+      <div className="content">
+        <div className="site">
           
             <h1 alt="codepath logo" id="siteName">Thomas.Kuhn11</h1>
             
         </div>
-              <ul class="links">
+              <ul className="links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/#About">About Us</a></li>
                 <li><a href="/#Contact">Contact Us</a></li>

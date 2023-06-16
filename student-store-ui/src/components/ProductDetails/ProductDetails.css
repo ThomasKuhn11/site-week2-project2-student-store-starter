@@ -1,0 +1,8 @@
+.product {
+    justify-content: center;
+}
+
+.cardDetails {
+    display: flex;
+    justify-content: center;
+}
