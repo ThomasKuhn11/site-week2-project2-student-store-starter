@@ -25,11 +25,7 @@ export default function Grid({products}) {
     }  
     return (
       <div className="Grid">
-        {/* <Link to="/about">Route Click</Link> */}
-        
-        {
-          products.map(product => createProduct(product))
-        }
-       </div>    
-    )
+        {products.map((product) => createProduct(product))}
+      </div>
+    );
   }

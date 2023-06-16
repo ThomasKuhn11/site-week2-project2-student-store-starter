@@ -27,9 +27,9 @@ export default function ProductDetails() {
             <div className="product">
               <img className="foodImages" src={product.image} />
               <div className="mainInfo">
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-                <p>{product.Description}</p>
+                <h1>{product.name}</h1>
+                <h2>{"$"+product.price}</h2>
+                <p>{product.description}</p>
               </div>
 
               </div>

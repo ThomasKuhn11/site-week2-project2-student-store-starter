@@ -20,26 +20,16 @@ export default function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      
-      <Sidebar/>
-      <Navbar/>
-       <main>
-        <Routes>
-            <Route path="" element={<Home/>}/>
-                         
-            <Route path="products/:id" element={<ProductDetails/>}/>
-         
+        <Sidebar />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="" element={<Home />} />
 
-            <Route path="*" element={<NotFound/>} />
-      
-       </Routes>
-        
-          {/* YOUR CODE HERE! */}
-          {/* <Navbar /> */}
-          {/* <Sidebar /> */}
+            <Route path="products/:id" element={<ProductDetails />} />
 
-          {/* <Home /> */}
-
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </main>
       </BrowserRouter>
     </div>
