@@ -14,7 +14,7 @@ export default function Grid({products}) {
               <img className="foodImages" src={info.image} />
               <div className="mainInfo">
                 <p>{info.name}</p>
-                <p>{info.price}</p>
+                <p>{"$"+info.price.toFixed(2)}</p>
               </div>
               
             </div>
