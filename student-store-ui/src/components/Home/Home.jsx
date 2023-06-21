@@ -34,14 +34,14 @@ export default function Home() {
   const handleChange = (event) => {
     setSearchValue(event.target.value);
 
-    setFiltered(
-      products?.filter((products) => {
-        if (event.target.value == "") return products;
-        return products.name
-          .toLowerCase()
-          .includes(event.target.value.toLowerCase);
-      })
-    );
+    // setFiltered(
+    //   products?.filter((products) => {
+    //     if (event.target.value == "") return products;
+    //     return products.name
+    //       .toLowerCase()
+    //       .includes(event.target.value.toLowerCase);
+    //   })
+    // );
   };
 
   //called when submit is pressed
@@ -76,15 +76,16 @@ export default function Home() {
     console.log(filtered);
   }
 
-  useEffect(() => {
-    axios.get(url).then((response) => {
+  useEffect(() => { //'http://localhost:3008/'
+    axios.get('http://localhost:3001/').then((response) => {
+      console.log(response.data.products)
       setProducts(response.data.products);
     });
   }, []);
 
   return (
     <div className="home">
-      <div class="welcome">
+      <div className="welcome">
         <h1>Welcome to my store!</h1>
         <p>We have all kinds of items. Click and start exploring!</p>
       </div>

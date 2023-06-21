@@ -1,0 +1,20 @@
+.actions .quantity {
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+.actions .amt {
+    background: orange;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-right: 30px;
+}

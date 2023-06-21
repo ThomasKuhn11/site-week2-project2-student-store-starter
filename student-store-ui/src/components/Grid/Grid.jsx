@@ -1,31 +1,28 @@
-import * as React from "react"
-import "./Grid.css"
+import * as React from "react";
+import "./Grid.css";
 
-import { Link } from "react-router-dom"
+import { useState } from "react";
 
-export default function Grid({products}) {
-    //console.log(products)
+import { Link } from "react-router-dom";
+import ProductCard from "../ProductCard/ProductCard";
+
+export default function Grid({ products }) {
+  console.log(products)
   
-    function createProduct(info) {
-      return (
-        <Link to={"products/" + info.id}>
 
-            <div className="product">
-              <img className="foodImages" src={info.image} />
-              <div className="mainInfo">
-                <p>{info.name}</p>
-                <p>{"$"+info.price.toFixed(2)}</p>
-              </div>
-              
-            </div>
-        
-        </Link>
-  
-      )
-    }  
+
+
+  function createProduct(info) {
     return (
-      <div className="Grid">
-        {products.map((product) => createProduct(product))}
-      </div>
+       <ProductCard info={info}/>
+
     );
   }
+  return (
+    <div className="Grid">
+      {products?.map((product) => createProduct(product))}
+
+      {/* {products.map((product) => <ProductCard product={product}/> )} */}
+    </div>
+  );
+}

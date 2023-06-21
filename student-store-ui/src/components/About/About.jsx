@@ -5,11 +5,11 @@ export default function About() {
 
     return (
 
-        <div class="about" id="About">
-        <div class="content">
+        <div className="about" id="About">
+        <div className="content">
           <h3>About</h3>
-          <div class="summary">
-            <div class="text">
+          <div className="summary">
+            <div className="text">
               <p>
                 The Thomas.Kuhn11 student store offers great products at great
                 prices from a great team and for a great cause.
