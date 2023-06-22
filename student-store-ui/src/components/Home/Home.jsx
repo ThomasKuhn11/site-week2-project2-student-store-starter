@@ -17,7 +17,9 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 
-export default function Home() {
+export default function Home({cart, setCart}) {
+
+  
   let url = "https://codepath-store-api.herokuapp.com/store";
 
   const [products, setProducts] = useState([]);
@@ -34,14 +36,6 @@ export default function Home() {
   const handleChange = (event) => {
     setSearchValue(event.target.value);
 
-    // setFiltered(
-    //   products?.filter((products) => {
-    //     if (event.target.value == "") return products;
-    //     return products.name
-    //       .toLowerCase()
-    //       .includes(event.target.value.toLowerCase);
-    //   })
-    // );
   };
 
   //called when submit is pressed
@@ -97,7 +91,7 @@ export default function Home() {
         handleFilter={handleFilter}
       />
 
-      <Grid products={filtered ? filtered : products} />
+      <Grid products={filtered ? filtered : products} cart={cart} setCart={setCart} />
 
       <div id="extraInfo">
         <About />

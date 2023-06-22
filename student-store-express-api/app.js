@@ -12,6 +12,7 @@ app.use(cors())
 
 //make new db based on db
 //let productData = {...db.products}
+//check pictures form wed
 
 //let productData = {db}
 

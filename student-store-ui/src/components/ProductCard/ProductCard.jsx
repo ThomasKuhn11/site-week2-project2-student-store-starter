@@ -6,7 +6,7 @@ import { useState } from "react";
 import "./ProductCard.css";
 
 
-export default function ProductCard({info}) {
+export default function ProductCard({info, cart, setCart}) {
 
   //need to make a shopping cart component and everytime
   //make addToshoppingCart and removeFromShoppingCart
@@ -17,14 +17,61 @@ export default function ProductCard({info}) {
 
 
     const increment = () => {
-      setCount(count + 1);
+       //alert(count)
+
+        setCount(count + 1);
+
+        //check if item is alredy in cart. 
+        if (!(cart.some(item => item.id === info.id))) {
+          //item not in cart so add
+          setCart([...cart, {id: info.id, name: info.name, price: info.price, count: count}]);
+        } 
+        else {
+          //item already in cart so just increment count
+          //find index and change the count
+      
+          const updatedItems = cart.map(item => {
+            if (item.id === info.id) {
+              // Update the count property of the item with the matching id
+              return { ...item, count: count };
+            }
+            return item;
+          });
+          setCart(updatedItems);
+
+          
+
+        }
+      console.log(cart)
+      
   
     }
   
     const decrement = () => {
+      //alert(count)
+
       if (count !== 0) {
         setCount(count - 1);
+        //alert(count)
+
+        if (count === 1) {
+          const updatedItems = cart.filter(item => item.id !== info.id);
+          setCart(updatedItems);
+        }
+
+        // const updatedItems = cart.map(item => {
+        //   if (item.id === info.id) {
+        //     // Update the count property of the item with the matching id
+        //     return { ...item, count: count };
+        //   }
+        //   return item;
+        // });
+        // setCart(updatedItems);
+
+            
       }
+
+
       
   
     }

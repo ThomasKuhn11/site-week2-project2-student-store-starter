@@ -2,8 +2,9 @@ import * as React from "react";
 import "./Sidebar.css";
 
 import { useState } from "react";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
-export default function Sidebar() {
+export default function Sidebar({cart}) {
   const [isOpen, setIsOpen] = useState(false);
 
 
@@ -16,6 +17,8 @@ export default function Sidebar() {
       setIsOpen(true)
     }
   }
+
+
 
   if (isOpen === false) {
     return (
@@ -56,7 +59,7 @@ export default function Sidebar() {
                 </span>
               </h3>
               <div className="notification">
-                No items added to cart yet. Start shopping now!
+                <ShoppingCart cart={cart}/>
               </div>
               <div className="checkout-form">
                 <h3 className="">
