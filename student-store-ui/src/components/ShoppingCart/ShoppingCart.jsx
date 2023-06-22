@@ -5,10 +5,10 @@ export default function ShoppingCart({ cart }) {
     const buildList = cart.map((item) => (
         <div key={item.id}>
           <span className="flex-2 cart-product-name">{item.name}</span>
-          <span className="center cart-product-quantity">{item.count}</span>
+          <span className="center cart-product-quantity">{item.quantity}</span>
           <span className="center cart-product-price">${item.price}</span>
           <span className="center cart-product-subtotal">
-            ${item.count * item.price}
+            ${item.quantity * item.price}
           </span>
         </div>
       ));

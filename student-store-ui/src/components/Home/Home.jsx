@@ -71,7 +71,7 @@ export default function Home({cart, setCart}) {
   }
 
   useEffect(() => { //'http://localhost:3008/'
-    axios.get('http://localhost:3001/').then((response) => {
+    axios.get('http://localhost:3001/store').then((response) => {
       console.log(response.data.products)
       setProducts(response.data.products);
     });

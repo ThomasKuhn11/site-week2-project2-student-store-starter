@@ -19,12 +19,13 @@ export default function ProductCard({info, cart, setCart}) {
     const increment = () => {
        //alert(count)
 
-        setCount(count + 1);
+        setCount(count => count + 1);
+        let quantity = count + 1;
 
         //check if item is alredy in cart. 
         if (!(cart.some(item => item.id === info.id))) {
           //item not in cart so add
-          setCart([...cart, {id: info.id, name: info.name, price: info.price, count: count}]);
+          setCart([...cart, {id: info.id, name: info.name, price: info.price, quantity: quantity}]);
         } 
         else {
           //item already in cart so just increment count
@@ -32,8 +33,8 @@ export default function ProductCard({info, cart, setCart}) {
       
           const updatedItems = cart.map(item => {
             if (item.id === info.id) {
-              // Update the count property of the item with the matching id
-              return { ...item, count: count };
+              // Update the quantity property of the item with the matching id
+              return { ...item, quantity: quantity };
             }
             return item;
           });
@@ -50,23 +51,31 @@ export default function ProductCard({info, cart, setCart}) {
     const decrement = () => {
       //alert(count)
 
-      if (count !== 0) {
+      if (count > 0) {
         setCount(count - 1);
+        let quantity = count - 1;
         //alert(count)
+        
 
-        if (count === 1) {
+        if (quantity === 0) {
+          alert(quantity)
           const updatedItems = cart.filter(item => item.id !== info.id);
           setCart(updatedItems);
         }
+        else {
+          const updatedItems = cart.map(item => {
+          if (item.id === info.id) {
+            // Update the count property of the item with the matching id
+            return { ...item, quantity: quantity };
+          }
+          return item;
+        });
 
-        // const updatedItems = cart.map(item => {
-        //   if (item.id === info.id) {
-        //     // Update the count property of the item with the matching id
-        //     return { ...item, count: count };
-        //   }
-        //   return item;
-        // });
-        // setCart(updatedItems);
+        setCart(updatedItems);
+
+        }
+
+
 
             
       }

@@ -17,10 +17,17 @@ app.use(cors())
 //let productData = {db}
 
 
-app.get('/', (req,res) => {
+app.get('/store', (req,res) => {
     res.status(200);
     res.send(db)
     //res.send("hello")
+})
+
+app.get("/:productId", async (req, res, next) => {
+        const productId = req.params.productId
+        const product = await app.fetchProductById(productId)
+        res.status(200).json({product})
+    
 })
 
 //app.post()
