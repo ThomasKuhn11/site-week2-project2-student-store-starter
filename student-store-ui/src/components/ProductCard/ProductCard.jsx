@@ -6,7 +6,7 @@ import { useState } from "react";
 import "./ProductCard.css";
 
 
-export default function ProductCard({info, cart, setCart}) {
+export default function ProductCard({info, cart, setCart, total, setTotal}) {
 
   //need to make a shopping cart component and everytime
   //make addToshoppingCart and removeFromShoppingCart
@@ -17,7 +17,6 @@ export default function ProductCard({info, cart, setCart}) {
 
 
     const increment = () => {
-       //alert(count)
 
         setCount(count => count + 1);
         let quantity = count + 1;
@@ -40,6 +39,10 @@ export default function ProductCard({info, cart, setCart}) {
           });
           setCart(updatedItems);
 
+          // //increment total price
+          // setTotal(total + info.price)
+          // alert(total)
+
           
 
         }
@@ -49,16 +52,14 @@ export default function ProductCard({info, cart, setCart}) {
     }
   
     const decrement = () => {
-      //alert(count)
 
       if (count > 0) {
         setCount(count - 1);
         let quantity = count - 1;
-        //alert(count)
+        
         
 
         if (quantity === 0) {
-          alert(quantity)
           const updatedItems = cart.filter(item => item.id !== info.id);
           setCart(updatedItems);
         }
@@ -73,16 +74,14 @@ export default function ProductCard({info, cart, setCart}) {
 
         setCart(updatedItems);
 
-        }
+        } 
 
-
-
-            
+        // //increment total price
+        // setTotal(total - info.price)
+        // alert(total)
+        
+        
       }
-
-
-      
-  
     }
 
     return (

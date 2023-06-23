@@ -17,7 +17,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 
-export default function Home({cart, setCart}) {
+export default function Home({cart, setCart, total, setTotal}) {
 
   
   let url = "https://codepath-store-api.herokuapp.com/store";
@@ -91,7 +91,7 @@ export default function Home({cart, setCart}) {
         handleFilter={handleFilter}
       />
 
-      <Grid products={filtered ? filtered : products} cart={cart} setCart={setCart} />
+      <Grid products={filtered ? filtered : products} cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
 
       <div id="extraInfo">
         <About />

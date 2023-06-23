@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 
-export default function Grid({ products, cart, setCart}) {
+export default function Grid({ products, cart, setCart, total, setTotal}) {
   console.log(products)
 
 
@@ -17,7 +17,7 @@ export default function Grid({ products, cart, setCart}) {
     
     return (
       
-       <ProductCard info={info} cart={cart} setCart={setCart}/>
+       <ProductCard info={info} cart={cart} setCart={setCart} total={total} setTotal={setTotal}/>
 
     );
   }

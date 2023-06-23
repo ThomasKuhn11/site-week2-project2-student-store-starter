@@ -1,0 +1,57 @@
+.header-row {
+    display: flex;
+    height: 50px;
+    background: lightgreen;
+    margin-bottom: 15px;
+}
+
+.header-row span {
+    flex: 1;
+    color: var(--pure-white);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.header-row span.center {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.product-row {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    border-bottom: solid 1px var(--border-color);
+    background-color: aliceblue;
+}
+
+.product-row span {
+    flex: 1;
+}
+.flex-2 {
+    flex: 2;
+    padding-left: 10px;
+}
+
+.center.cart-product-quantity {
+    margin: 0;
+    padding: 0;
+    font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    
+}
+
+.shopping-cart .product-row span.center {
+    display: flex;
+    justify-content: center;
+}
+
+.product-row span {
+    flex: 1;
+}

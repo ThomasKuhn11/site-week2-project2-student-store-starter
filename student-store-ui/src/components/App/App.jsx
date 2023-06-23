@@ -23,6 +23,18 @@ export default function App() {
 
 const [cart, setCart] = useState([]); //array of items(json?)
 
+
+// const [cart, setCart] = useState({
+//   cartItem: [{
+//     id: null,
+//     quantity: 0
+//   }],
+//   totalPrice: 0
+// }) 
+
+
+const [total, setTotal] = useState(0);
+
 //everytime user clicks + and - should add to shopping cart
 //if item is already in the cart just increment the count
 //else add the item to my cart
@@ -35,7 +47,7 @@ const [cart, setCart] = useState([]); //array of items(json?)
         <Navbar />
         <main>
           <Routes>
-            <Route path="" element={<Home cart={cart} setCart={setCart}/>} />
+            <Route path="" element={<Home cart={cart} setCart={setCart} total={total} setTotal={setTotal}/>} />
 
             <Route path="products/:id" element={<ProductDetails />} />
 
