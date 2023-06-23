@@ -38,6 +38,11 @@ Video Demo:
 
 ## *Week 3* Application Features
 
+<a href="https://www.loom.com/share/d395d5bbab8b4b5bb39d2a8a6dadc8f9">
+    <p>Library | Loom - 23 June 2023 - Watch Video</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/d395d5bbab8b4b5bb39d2a8a6dadc8f9-with-play.gif">
+  </a>
+
 ### Core Features
 
 - [x] User can click to expand the shopping cart in the left navigation.
