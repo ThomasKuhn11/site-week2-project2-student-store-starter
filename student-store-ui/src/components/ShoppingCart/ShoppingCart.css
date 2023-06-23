@@ -29,7 +29,7 @@
     padding-bottom: 20px;
     margin-top: 10px;
     border-bottom: solid 1px var(--border-color);
-    background-color: aliceblue;
+    background-color: darkblue;
 }
 
 .product-row span {
@@ -54,4 +54,74 @@
 
 .product-row span {
     flex: 1;
+}
+
+.receipt {
+    display: flex;
+    flex-direction: column;
+    background: darkblue;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.receipt .receipt-subtotal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.receipt .receipt-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.receipt-total {
+    border-top: solid 1px var(--border-color);
+}
+
+.receipt .receipt-taxes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.receipt .label {
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.receipt span.center {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.receipt .label {
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.receipt span.center {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.receipt .label {
+    font-weight: 600;
+    padding-left: 10px;
+}
+.receipt span {
+    flex: 1;
+}
+
+.receipt span.center {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
 }

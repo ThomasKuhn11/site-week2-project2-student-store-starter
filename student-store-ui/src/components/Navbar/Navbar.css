@@ -18,6 +18,12 @@
     max-width: 650px;
 } 
 
+.navbar .content .links a {
+    color: black; /* Set the link color */
+  text-decoration: none; /* Remove the underline */
+  transition: color 0.3s ease;
+}
+
 #siteName {
     /* text-align: center; */
     font-family: cursive, sans-serif;

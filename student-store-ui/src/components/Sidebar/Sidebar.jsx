@@ -4,27 +4,50 @@ import "./Sidebar.css";
 import { useState } from "react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
-export default function Sidebar({cart}) {
+export default function Sidebar({ cart }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [receipt, setReceipt] = useState("");
+
+  const [name, setName] = useState("");
+
+  const [email, setEmail] = useState("");
+
+
+  const handleCheckout = () => {
+    // Create the receipt using the entered information
+    const receiptData = {
+      name,
+      email,
+      // Other receipt details...
+    };
+
+    // Set the receipt state with the created receipt data
+    setReceipt(receiptData);
+  };
 
   const handleOpenClose = () => {
     if (isOpen === true) {
-      setIsOpen(false)
-
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
     }
-    else {
-      setIsOpen(true)
-    }
-  }
+  };
 
+  
+  const showPurchase = cart.map((item) => (   
+      <li>{item.quantity} total {item.name} purchased at a cost of ${item.quantity * item.price}</li>   
+  ));
 
 
   if (isOpen === false) {
     return (
       <section className="sidebarClosed">
         <div className="wrapper">
-          <button onClick={handleOpenClose} className="toggle-button button closed">
+          <button
+            onClick={handleOpenClose}
+            className="toggle-button button closed"
+          >
             <i className="material-icons md-48">arrow_forward</i>
           </button>
           <div className="shopping-cart">
@@ -47,7 +70,10 @@ export default function Sidebar({cart}) {
     return (
       <section className="sidebarOpen">
         <div className="wrapper">
-          <button onClick={handleOpenClose} className="toggle-button button open">
+          <button
+            onClick={handleOpenClose}
+            className="toggle-button button open"
+          >
             <i className="material-icons md-48">arrow_forward</i>
           </button>
           <div className="shopping-cart">
@@ -59,7 +85,7 @@ export default function Sidebar({cart}) {
                 </span>
               </h3>
               <div className="notification">
-                <ShoppingCart cart={cart}/>
+                <ShoppingCart cart={cart} />
               </div>
               <div className="checkout-form">
                 <h3 className="">
@@ -76,7 +102,8 @@ export default function Sidebar({cart}) {
                       className="checkout-form-input"
                       type="text"
                       placeholder="Student Name"
-                      value=""
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     ></input>
                   </div>
                 </div>
@@ -88,7 +115,8 @@ export default function Sidebar({cart}) {
                       className="checkout-form-input"
                       type="email"
                       placeholder="student@codepath.org"
-                      value=""
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     ></input>
                   </div>
                 </div>
@@ -97,8 +125,8 @@ export default function Sidebar({cart}) {
                     <label className="checkbox">
                       <input name="termsAndConditions" type="checkbox"></input>
                       <span className="label">
-                        I agree to the{" "}
-                        <a href="#terms-and-conditions">terms and conditions</a>
+                        I agree to the terms and conditions
+                        
                       </span>
                     </label>
                   </div>
@@ -106,7 +134,12 @@ export default function Sidebar({cart}) {
                 <p className="is-danger"></p>
                 <div className="field">
                   <div className="control">
-                    <button className="button checkout-button">Checkout</button>
+                    <button
+                      className="button checkout-button"
+                      onClick={handleCheckout}
+                    >
+                      Checkout
+                    </button>
                   </div>
                 </div>
               </div>
@@ -118,11 +151,29 @@ export default function Sidebar({cart}) {
                   </span>
                 </h3>
                 <div className="content">
-                  <p>
-                    A confirmation email will be sent to you so that you can
-                    confirm this order. Once you have confirmed the order, it
-                    will be delivered to your dorm room.
-                  </p>
+                  {receipt ? (
+                    <div className="card">
+                      <h2>Receipt:</h2>
+                      <p>Thank you for your purchase {receipt.name}!</p>
+                      <p>A confirmation email has been sent to {receipt.email}.</p>
+                      
+                      <ul className="purchase">
+                      {showPurchase}
+
+                      </ul>
+                      <div className="homeLink"><a href="/">Home</a></div>
+                    </div>
+                    
+                  ) : (
+                    <div className="defaultMessage">
+          
+                      <p>
+                        A confirmation email will be sent to you so that you can
+                        confirm this order. Once you have confirmed the order,
+                        it will be delivered to your dorm room.
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

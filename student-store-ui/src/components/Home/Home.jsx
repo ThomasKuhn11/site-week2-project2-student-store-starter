@@ -17,9 +17,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 
-export default function Home({cart, setCart, total, setTotal}) {
-
-  
+export default function Home({ cart, setCart, total, setTotal }) {
   let url = "https://codepath-store-api.herokuapp.com/store";
 
   const [products, setProducts] = useState([]);
@@ -35,7 +33,6 @@ export default function Home({cart, setCart, total, setTotal}) {
   //called everytime search bar is changed
   const handleChange = (event) => {
     setSearchValue(event.target.value);
-
   };
 
   //called when submit is pressed
@@ -70,9 +67,10 @@ export default function Home({cart, setCart, total, setTotal}) {
     console.log(filtered);
   }
 
-  useEffect(() => { //'http://localhost:3008/'
-    axios.get('http://localhost:3001/store').then((response) => {
-      console.log(response.data.products)
+  useEffect(() => {
+    //'http://localhost:3008/'
+    axios.get("http://localhost:3001/store").then((response) => {
+      console.log(response.data.products);
       setProducts(response.data.products);
     });
   }, []);
@@ -91,7 +89,13 @@ export default function Home({cart, setCart, total, setTotal}) {
         handleFilter={handleFilter}
       />
 
-      <Grid products={filtered ? filtered : products} cart={cart} setCart={setCart} total={total} setTotal={setTotal} />
+      <Grid
+        products={filtered ? filtered : products}
+        cart={cart}
+        setCart={setCart}
+        total={total}
+        setTotal={setTotal}
+      />
 
       <div id="extraInfo">
         <About />

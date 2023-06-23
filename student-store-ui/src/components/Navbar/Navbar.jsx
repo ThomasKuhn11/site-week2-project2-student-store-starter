@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="content">
         <div className="site">
           
-            <h1 alt="codepath logo" id="siteName">Thomas.Kuhn11</h1>
+            <h1 alt="my logo" id="siteName">Thomas.Kuhn11</h1>
             
         </div>
               <ul className="links">

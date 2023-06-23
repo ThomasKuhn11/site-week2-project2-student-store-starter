@@ -17,27 +17,12 @@ import About from "../About/About";
 import ProductDetails from "../ProductDetails/ProductDetails";
 
 export default function App() {
-//make use state to talk between side bar and grid
-
-//cart usestate(an array that has all cart items) here and pass it down the sidebar
-
-const [cart, setCart] = useState([]); //array of items(json?)
 
 
-// const [cart, setCart] = useState({
-//   cartItem: [{
-//     id: null,
-//     quantity: 0
-//   }],
-//   totalPrice: 0
-// }) 
+const [cart, setCart] = useState([]); 
 
 
 const [total, setTotal] = useState(0);
-
-//everytime user clicks + and - should add to shopping cart
-//if item is already in the cart just increment the count
-//else add the item to my cart
 
 
   return (
